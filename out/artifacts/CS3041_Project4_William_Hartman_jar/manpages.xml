@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manpages>
+    <category name="Help and Information">
+        <categorydescription><![CDATA[This program will make it easier to read Unix Man pages
+
+The information for each command is broken up and categorized. The top level category corresponds to the task the command is used for. Next, there is a general description of the command. Beneath that, there are examples for the command's uses and a comprehensive list of options for that command.
+
+If the information you are currently reading is too specific, you can move to less specific information by clicking on the buttons in the top bar.
+
+To find information on a specific command, type its name into the search box on the top left.
+
+
+
+* * *
+
+
+
+- This program was written by William Hartman.
+
+- All example man pages were adapted from Michael Kerrisk's http://man7.org/
+
+- Breadcrumb buttons were adapted from http://ustesis.wordpress.com/2013/11/04/implementing-breadcrumbs-in-javafx/]]></categorydescription>
+    </category>
+    <category name="File Management">
+        <categorydescription><![CDATA[File management utilities allow you to manipulate files. This includes common actions like removing files, as well as tools to navigate through directories]]></categorydescription>
+
+        <command name="cd">
+            <description><![CDATA[cd changes the current working directory. If DIRECTORY is supplied, it will become the new directory. If no parameter is given, the contents of the HOME environment variable will be used. If DIRECTORY is a relative path, the paths found in the CDPATH environment variable array will be tried as prefixes for the specified path. Note that the shell will attempt to change directory without requiring cd if the name of a directory is provided (starting with '.', '/' or '~', or ending with '/').]]>
+            </description>
+            <examples><![CDATA[cd changes the working directory to your home directory.
+
+cd /usr/src/fish-shell changes the working directory to /usr/src/fish-shell.v]]>
+            </examples>
+            <options><![CDATA[The cd command is very basic and does not have any options.]]></options>
+        </command>
+
+        <command name="ls">
+            <description><![CDATA[List  information  about  the FILEs (the current directory by default). Sort entries alphabetically if none of -cftuvSUX nor --sort  is  speci‐fied.]]></description>
+            <examples><![CDATA[ls lists information about files in the current directory]]></examples>
+            <options><![CDATA[Mandatory arguments to long options are mandatory for short options too.
+
+           -a, --all
+                  do not ignore entries starting with .
+
+           -A, --almost-all
+                  do not list implied . and ..
+
+           --author
+                  with -l, print the author of each file
+
+           -b, --escape
+                  print C-style escapes for nongraphic characters
+
+           --block-size=SIZE
+                  scale sizes by SIZE before printing them; e.g.,
+                  '--block-size=M' prints sizes in units of 1,048,576 bytes; see
+                  SIZE format below
+
+           -B, --ignore-backups
+                  do not list implied entries ending with ~
+
+           -c     with -lt: sort by, and show, ctime (time of last modification
+                  of file status information); with -l: show ctime and sort by
+                  name; otherwise: sort by ctime, newest first
+
+           -C     list entries by columns
+
+           --color[=WHEN]
+                  colorize the output; WHEN can be 'never', 'auto', or 'always'
+                  (the default); more info below
+
+           -d, --directory
+                  list directories themselves, not their contents
+
+           -D, --dired
+                  generate output designed for Emacs' dired mode
+
+           -f     do not sort, enable -aU, disable -ls --color
+
+           -F, --classify
+                  append indicator (one of */=>@|) to entries
+
+           --file-type
+                  likewise, except do not append '*'
+
+           --format=WORD
+                  across -x, commas -m, horizontal -x, long -l, single-column
+                  -1, verbose -l, vertical -C
+
+           --full-time
+                  like -l --time-style=full-iso
+
+           -g     like -l, but do not list owner
+
+           --group-directories-first
+                  group directories before files;
+
+                  can be augmented with a --sort option, but any use of
+                  --sort=none (-U) disables grouping
+
+           -G, --no-group
+                  in a long listing, don't print group names
+
+           -h, --human-readable
+                  with -l and/or -s, print human readable sizes (e.g., 1K 234M
+                  2G)
+
+           --si   likewise, but use powers of 1000 not 1024
+
+           -H, --dereference-command-line
+                  follow symbolic links listed on the command line
+
+           --dereference-command-line-symlink-to-dir
+                  follow each command line symbolic link
+
+                  that points to a directory
+
+           --hide=PATTERN
+                  do not list implied entries matching shell PATTERN (overridden
+                  by -a or -A)
+
+           --indicator-style=WORD
+                  append indicator with style WORD to entry names: none
+                  (default), slash (-p), file-type (--file-type), classify (-F)
+
+           -i, --inode
+                  print the index number of each file
+
+           -I, --ignore=PATTERN
+                  do not list implied entries matching shell PATTERN
+
+           -k, --kibibytes
+                  default to 1024-byte blocks for disk usage
+
+           -l     use a long listing format
+
+           -L, --dereference
+                  when showing file information for a symbolic link, show
+                  information for the file the link references rather than for
+                  the link itself
+
+           -m     fill width with a comma separated list of entries
+
+           -n, --numeric-uid-gid
+                  like -l, but list numeric user and group IDs
+
+           -N, --literal
+                  print raw entry names (don't treat e.g. control characters
+                  specially)
+
+           -o     like -l, but do not list group information
+
+           -p, --indicator-style=slash
+                  append / indicator to directories
+
+           -q, --hide-control-chars
+                  print ? instead of nongraphic characters
+
+           --show-control-chars
+                  show nongraphic characters as-is (the default, unless program
+                  is 'ls' and output is a terminal)
+
+           -Q, --quote-name
+                  enclose entry names in double quotes
+
+           --quoting-style=WORD
+                  use quoting style WORD for entry names: literal, locale,
+                  shell, shell-always, c, escape
+
+           -r, --reverse
+                  reverse order while sorting
+
+           -R, --recursive
+                  list subdirectories recursively
+
+           -s, --size
+                  print the allocated size of each file, in blocks
+
+           -S     sort by file size
+
+           --sort=WORD
+                  sort by WORD instead of name: none (-U), size (-S), time (-t),
+                  version (-v), extension (-X)
+
+           --time=WORD
+                  with -l, show time as WORD instead of default modification
+                  time: atime or access or use (-u) ctime or status (-c); also
+                  use specified time as sort key if --sort=time
+
+           --time-style=STYLE
+                  with -l, show times using style STYLE: full-iso, long-iso,
+                  iso, locale, or +FORMAT; FORMAT is interpreted like in 'date';
+                  if FORMAT is FORMAT1<newline>FORMAT2, then FORMAT1 applies to
+                  non-recent files and FORMAT2 to recent files; if STYLE is
+                  prefixed with 'posix-', STYLE takes effect only outside the
+                  POSIX locale
+
+           -t     sort by modification time, newest first
+
+           -T, --tabsize=COLS
+                  assume tab stops at each COLS instead of 8
+
+           -u     with -lt: sort by, and show, access time; with -l: show access
+                  time and sort by name; otherwise: sort by access time
+
+           -U     do not sort; list entries in directory order
+
+           -v     natural sort of (version) numbers within text
+
+           -w, --width=COLS
+                  assume screen width instead of current value
+
+           -x     list entries by lines instead of by columns
+
+           -X     sort alphabetically by entry extension
+
+           -Z, --context
+                  print any security context of each file
+
+           -1     list one file per line
+
+           --help display this help and exit
+
+           --version
+                  output version information and exit
+
+           The SIZE argument is an integer and optional unit (example: 10K is 10*1024).  Units are K,M,G,T,P,E,Z,Y (powers of 1024) or KB,MB,... (powers of 1000).
+
+           Using color to distinguish file types is disabled both by default and with --color=never.  With --color=auto, ls emits color codes only when standard output is connected to a terminal.  The LS_COLORS environment variable can change the settings.  Use the dircolors command to set it.]]></options>
+        </command>
+
+        <command name="rm">
+            <description><![CDATA[This manual page documents the GNU version of rm.  rm removes each specified file.  By default, it does not remove directories.
+
+If the -I or --interactive=once option is given, and there are more than three files or the -r, -R, or --recursive are given, then rm prompts the user for whether to proceed with the entire operation. If the response is not affirmative, the entire command is aborted.
+
+ Otherwise, if a file is unwritable, standard input is a terminal, and the -f or --force option is not given, or the -i or --interactive=always option is given, rm prompts the user for whether to remove the file.  If the response is not affirmative, the file is skipped.]]>
+            </description>
+            <examples><![CDATA[rm foo
+    remove file "foo"
+
+rm *
+    remove all files in the current directory, but leave files in any sub-directories
+
+rm -r *
+    remove all files in and sub-directories of the current directory.]]>
+            </examples>
+            <options><![CDATA[Remove (unlink) the FILE(s).
+
+       -f, --force
+              ignore nonexistent files and arguments, never prompt
+
+       -i     prompt before every removal
+
+       -I     prompt once before removing more than three files, or when
+              removing recursively; less intrusive than -i, while still
+              giving protection against most mistakes
+
+       --interactive[=WHEN]
+              prompt according to WHEN: never, once (-I), or always (-i);
+              without WHEN, prompt always
+
+       --one-file-system
+              when removing a hierarchy recursively, skip any directory that
+              is on a file system different from that of the corresponding
+              command line argument
+
+       --no-preserve-root
+              do not treat '/' specially
+
+       --preserve-root
+              do not remove '/' (default)
+
+       -r, -R, --recursive
+              remove directories and their contents recursively
+
+       -d, --dir
+              remove empty directories
+
+       -v, --verbose
+              explain what is being done
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+By default, rm does not remove directories.  Use the --recursive (-r or -R) option to remove each listed directory, too, along with all of its contents.
+
+To remove a file whose name starts with a '-', for example '-foo', use one of these commands:
+
+       rm -- -foo
+
+       rm ./-foo
+
+Note that if you use rm to remove a file, it might be possible to recover some of its contents, given sufficient expertise and/or time. For greater assurance that the contents are truly unrecoverable, consider using shred.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Report rm translation bugs to <http://translationproject.org/team/>
+]]></options>
+        </command>
+
+    </category>
+    <category name="Monitoring the System">
+        <categorydescription><![CDATA[System monitoring programs can inform you on what is happening on your computer. This might include details about running processing, or details about CPU and RAM usage. ]]></categorydescription>
+        <command name="top">
+            <description><![CDATA[The top program provides a dynamic real-time view of a running system.  It can display system summary information as well as a list of processes or threads currently being managed by the Linux kernel. The types of system summary information shown and the types, order and size of information displayed for processes are all user configurable and that configuration can be made persistent across restarts.
+
+The program provides a limited interactive interface for process manipulation as well as a much more extensive interface for personal configuration  --  encompassing every aspect of its operation.  And while top is referred to throughout this document, you are free to name the program anything you wish.  That new name, possibly an alias, will then be reflected on top's display and used when reading and writing a configuration file.]]>
+            </description>
+            <examples><![CDATA[When operating top, the two most important keys are the help (h or ?) key and quit ('q') key.  Alternatively, you could simply use the traditional interrupt key (^C) when you're done.
+
+When started for the first time, you'll be presented with these traditional elements on the main top screen: 1) Summary Area; 2) Fields/Columns Header; 3) Task Area.  Each of these will be explored in the sections that follow.  There is also an Input/Message line between the Summary Area and Columns Header which needs no further explanation.
+
+The main top screen is generally quite adaptive to changes in terminal dimensions under X-Windows.  Other top screens may be less so, especially those with static text.  It ultimately depends, however, on your particular window manager and terminal emulator. There may be occasions when their view of terminal size and current contents differs from top's view, which is always based on operating system calls.
+
+Following any re-size operation, if a top screen is corrupted, appears incomplete or disordered, simply typing something innocuous like a punctuation character or cursor motion key will usually restore it.  In extreme cases, the following sequence almost certainly will:
+       key/cmd  objective
+       ^Z       suspend top
+       fg       resume top
+       <Left>   force a screen redraw (if necessary)
+
+But if the display is still corrupted, there is one more step you could try.  Insert this command after top has been suspended but before resuming it.
+       key/cmd  objective
+       reset    restore your terminal settings
+
+Note: the width of top's display will be limited to 512 positions. Displaying all fields requires approximately 250 characters. Remaining screen width is usually allocated to any variable width columns currently visible.  The variable width columns, such as COMMAND, are noted in topic 3a. DESCRIPTIONS of Fields.  Actual output width may also be influenced by the -w switch, which is discussed in topic 1. COMMAND-LINE Options.
+
+Lastly, some of top's screens or functions require the use of cursor motion keys like the standard arrow keys plus the Home, End, PgUp and PgDn keys.  If your terminal or emulator does not provide those keys, the following combinations are accepted as alternatives:
+       key      equivalent-key-combinations
+       Up       alt + \      or  alt + k
+       Down     alt + /      or  alt + j
+       Left     alt + <      or  alt + h
+       Right    alt + >      or  alt + l (lower case L)
+       PgUp     alt + Up     or  alt + ctrl + k
+       PgDn     alt + Down   or  alt + ctrl + j
+       Home     alt + Left   or  alt + ctrl + h
+       End      alt + Right  or  alt + ctrl + l
+
+The Up and Down arrow keys have special significance when prompted for line input terminated with the <Enter> key.  Those keys, or their aliases, can be used to retrieve previous input lines which can then be edited and re-input.  And there are four additional keys available with line oriented input.
+       key      special-significance
+       Up       recall older strings for re-editing
+       Down     recall newer strings or erase entire line
+       Insert   toggle between insert and overtype modes
+       Delete   character removed at cursor, moving others left
+       Home     jump to beginning of input line
+       End      jump to end of input line
+
+Startup Defaults
+The following startup defaults assume no configuration file, thus no user customizations.  Even so, items shown with an asterisk (`*') could be overridden through the command-line.  All are explained in detail in the sections that follow.
+
+    Global-defaults
+       A - Alt display      Off (full-screen)
+     * d - Delay time       1.5 seconds
+     * H - Threads mode     Off (summarize as tasks)
+       I - Irix mode        On  (no, `solaris' smp)
+     * p - PID monitoring   Off (show all processes)
+     * s - Secure mode      Off (unsecured)
+       B - Bold enable      On  (yes, bold globally)
+    Summary-Area-defaults
+       l - Load Avg/Uptime  On  (thus program name)
+       t - Task/Cpu states  On  (1+1 lines, see `1')
+       m - Mem/Swap usage   On  (2 lines worth)
+       1 - Single Cpu       Off (thus multiple cpus)
+    Task-Area-defaults
+       b - Bold hilite      Off (use `reverse')
+     * c - Command line     Off (name, not cmdline)
+     * i - Idle tasks       On  (show all tasks)
+       J - Num align right  On  (not left justify)
+       j - Str align right  Off (not right justify)
+       R - Reverse sort     On  (pids high-to-low)
+     * S - Cumulative time  Off (no, dead children)
+     * u - User filter      Off (show euid only)
+     * U - User filter      Off (show any uid)
+       V - Forest view      On  (show as branches)
+       x - Column hilite    Off (no, sort field)
+       y - Row hilite       On  (yes, running tasks)
+       z - color/mono       On  (show colors)]]>
+            </examples>
+            <options><![CDATA[The command-line syntax for top consists of:
+
+         -hv|-bcHiOSs -d secs -n max -u|U user -p pid -o fld -w [cols]
+
+       The typically mandatory switch ('-') and even whitespace are
+       completely optional.
+
+       -h | -v  :Help/Version
+            Show library version and the usage prompt, then quit.
+
+       -b  :Batch-mode operation
+            Starts top in Batch mode, which could be useful for sending
+            output from top to other programs or to a file.  In this mode,
+            top will not accept input and runs until the iterations limit
+            you've set with the `-n' command-line option or until killed.
+
+       -c  :Command-line/Program-name toggle
+            Starts top with the last remembered `c' state reversed.  Thus,
+            if top was displaying command lines, now that field will show
+            program names, and visa versa.  See the `c' interactive command
+            for additional information.
+
+       -d  :Delay-time interval as:  -d ss.t (secs.tenths)
+            Specifies the delay between screen updates, and overrides the
+            corresponding value in one's personal configuration file or the
+            startup default.  Later this can be changed with the `d' or `s'
+            interactive commands.
+
+            Fractional seconds are honored, but a negative number is not
+            allowed.  In all cases, however, such changes are prohibited if
+            top is running in Secure mode, except for root (unless the `s'
+            command-line option was used).  For additional information on
+            Secure mode see topic 6a. SYSTEM Configuration File.
+
+       -H  :Threads-mode operation
+            Instructs top to display individual threads.  Without this
+            command-line option a summation of all threads in each process
+            is shown.  Later this can be changed with the `H' interactive
+            command.
+
+       -i  :Idle-process toggle
+            Starts top with the last remembered `i' state reversed.  When
+            this toggle is Off, tasks that have not used any CPU since the
+            last update will not be displayed.  For additional information
+            regarding this toggle see topic 4c. TASK AREA Commands, SIZE.
+
+       -n  :Number-of-iterations limit as:  -n number
+            Specifies the maximum number of iterations, or frames, top
+            should produce before ending.
+
+       -o  :Override-sort-field as:  -o fieldname
+            Specifies the name of the field on which tasks will be sorted,
+            independent of what is reflected in the configuration file.  You
+            can prepend a `+' or `-' to the field name to also override the
+            sort direction.  A leading `+' will force sorting high to low,
+            whereas a `-' will ensure a low to high ordering.
+
+            This option exists primarily to support automated/scripted batch
+            mode operation.
+
+       -O  :Output-field-names
+            This option acts as a form of help for the above -o option.  It
+            will cause top to print each of the available field names on a
+            separate line, then quit.  Such names are subject to nls
+            translation.
+
+       -p  :Monitor-PIDs mode as:  -pN1 -pN2 ...  or  -pN1,N2,N3 ...
+            Monitor only processes with specified process IDs.  This option
+            can be given up to 20 times, or you can provide a comma
+            delimited list with up to 20 pids.  Co-mingling both approaches
+            is permitted.
+
+            A pid value of zero will be treated as the process id of the top
+            program itself once it is running.
+
+            This is a command-line option only and should you wish to return
+            to normal operation, it is not necessary to quit and restart top
+             --  just issue any of these interactive commands: `=', `u' or
+            `U'.
+
+            The `p', `u' and `U' command-line options are mutually
+            exclusive.
+
+       -s  :Secure-mode operation
+            Starts top with secure mode forced, even for root.  This mode is
+            far better controlled through the system configuration file (see
+            topic 6. FILES).
+
+       -S  :Cumulative-time toggle
+            Starts top with the last remembered `S' state reversed.  When
+            Cumulative time mode is On, each process is listed with the cpu
+            time that it and its dead children have used.  See the `S'
+            interactive command for additional information regarding this
+            mode.
+
+       -u | -U  :User-filter-mode as:  -u | -U number or name
+            Display only processes with a user id or user name matching that
+            given.  The `-u' option matches on  effective user whereas the
+            `-U' option matches on any user (real, effective, saved, or
+            filesystem).
+
+            Prepending an exclamation point ('!') to the user id or name
+            instructs top to display only processes with users not matching
+            the one provided.
+
+            The `p', `u' and `U' command-line options are mutually
+            exclusive.
+
+       -w  :Output-width-override as:  -w [ number ]
+            In Batch mode, when used without an argument top will format
+            output using the COLUMNS= and LINES= environment variables, if
+            set.  Otherwise, width will be fixed at the maximum 512 columns.
+            With an argument, output width can be decreased or increased (up
+            to 512) but the number of rows is considered unlimited.
+
+            In normal display mode, when used without an argument top will
+            attempt to format output using the COLUMNS= and LINES=
+            environment variables, if set.  With an argument, output width
+            can only be decreased, not increased.  Whether using environment
+            variables or an argument with -w, when not in Batch mode actual
+            terminal dimensions can never be exceeded.
+
+            Note: Without the use of this command-line option, output width
+            is always based on the terminal at which top was invoked whether
+            or not in Batch mode.]]></options>
+        </command>
+    </category>
+
+    <category name="Development Tools">
+        <categorydescription><![CDATA[Development tools make it easier to write and test your code. Programs in this category might include text editors, compilers, and debuggers.]]></categorydescription>
+        <command name="gdb">
+            <description><![CDATA[The purpose of a debugger such as GDB is to allow you to see what is going on "inside" another program while it executes -- or what another program was doing at the moment it crashed.
+
+GDB can do four main kinds of things (plus other things in support of these) to help you catch bugs in the act:
+
+       ·   Start your program, specifying anything that might affect its
+           behavior.
+
+       ·   Make your program stop on specified conditions.
+
+       ·   Examine what has happened, when your program has stopped.
+
+       ·   Change things in your program, so you can experiment with
+           correcting the effects of one bug and go on to learn about
+           another.
+
+You can use GDB to debug programs written in C, C@t{++}, Fortran and Modula-2.]]>
+            </description>
+            <examples><![CDATA[GDB is invoked with the shell command "gdb".  Once started, it reads commands from the terminal until you tell it to exit with the GDB command "quit".  You can get online help from GDB itself by using the command "help".
+
+You can run "gdb" with no arguments or options; but the most usual way to start GDB is with one argument or two, specifying an executable program as the argument:
+
+               gdb program
+
+You can also start with both an executable program and a core file specified:
+
+               gdb program core
+
+You can, instead, specify a process ID as a second argument, if you want to debug a running process:
+
+               gdb program 1234
+               gdb -p 1234
+
+would attach GDB to process 1234 (unless you also have a file named 1234; GDB does check for a core file first).  With option -p you can omit the program filename.
+
+       Here are some of the most frequently needed GDB commands:
+
+       break [file:]functiop
+           Set a breakpoint at function (in file).
+
+       run [arglist]
+           Start your program (with arglist, if specified).
+
+       bt  Backtrace: display the program stack.
+
+       print expr
+           Display the value of an expression.
+
+       c   Continue running your program (after stopping, e.g. at a
+           breakpoint).
+
+       next
+           Execute next program line (after stopping); step over any
+           function calls in the line.
+
+       edit [file:]function
+           look at the program line where it is presently stopped.
+
+       list [file:]function
+           type the text of the program in the vicinity of where it is
+           presently stopped.
+
+       step
+           Execute next program line (after stopping); step into any
+           function calls in the line.
+
+       help [name]
+           Show information about GDB command name, or general information
+           about using GDB.
+
+       quit
+           Exit from GDB.
+
+For full details on GDB, see Using GDB: A Guide to the GNU Source-Level Debugger, by Richard M. Stallman and Roland H. Pesch.  The same text is available online as the "gdb" entry in the "info" program.]]>
+            </examples>
+            <options><![CDATA[       Any arguments other than options specify an executable file and core
+       file (or process ID); that is, the first argument encountered with no
+       associated option flag is equivalent to a -se option, and the second,
+       if any, is equivalent to a -c option if it's the name of a file.
+       Many options have both long and short forms; both are shown here.
+       The long forms are also recognized if you truncate them, so long as
+       enough of the option is present to be unambiguous.  (If you prefer,
+       you can flag option arguments with + rather than -, though we
+       illustrate the more usual convention.)
+
+       All the options and command line arguments you give are processed in
+       sequential order.  The order makes a difference when the -x option is
+       used.
+
+       -help
+       -h  List all options, with brief explanations.
+
+       -symbols=file
+       -s file
+           Read symbol table from file file.
+
+       -write
+           Enable writing into executable and core files.
+
+       -exec=file
+       -e file
+           Use file file as the executable file to execute when appropriate,
+           and for examining pure data in conjunction with a core dump.
+
+       -se=file
+           Read symbol table from file file and use it as the executable
+           file.
+
+       -core=file
+       -c file
+           Use file file as a core dump to examine.
+
+       -command=file
+       -x file
+           Execute GDB commands from file file.
+
+       -ex command
+           Execute given GDB command.
+
+       -directory=directory
+       -d directory
+           Add directory to the path to search for source files.
+
+       -nh Do not execute commands from ~/.gdbinit.
+
+       -nx
+       -n  Do not execute commands from any .gdbinit initialization files.
+
+       -quiet
+       -q  "Quiet".  Do not print the introductory and copyright messages.
+           These messages are also suppressed in batch mode.
+
+       -batch
+           Run in batch mode.  Exit with status 0 after processing all the
+           command files specified with -x (and .gdbinit, if not inhibited).
+           Exit with nonzero status if an error occurs in executing the GDB
+           commands in the command files.
+
+           Batch mode may be useful for running GDB as a filter, for example
+           to download and run a program on another computer; in order to
+           make this more useful, the message
+
+                   Program exited normally.
+
+           (which is ordinarily issued whenever a program running under GDB
+           control terminates) is not issued when running in batch mode.
+
+       -cd=directory
+           Run GDB using directory as its working directory, instead of the
+           current directory.
+
+       -fullname
+       -f  Emacs sets this option when it runs GDB as a subprocess.  It
+           tells GDB to output the full file name and line number in a
+           standard, recognizable fashion each time a stack frame is
+           displayed (which includes each time the program stops).  This
+           recognizable format looks like two \032 characters, followed by
+           the file name, line number and character position separated by
+           colons, and a newline.  The Emacs-to-GDB interface program uses
+           the two \032 characters as a signal to display the source code
+           for the frame.
+
+       -b bps
+           Set the line speed (baud rate or bits per second) of any serial
+           interface used by GDB for remote debugging.
+
+       -tty=device
+           Run using device for your program's standard input and output.
+
+SEE ALSO         top
+
+       The full documentation for GDB is maintained as a Texinfo manual.  If
+       the "info" and "gdb" programs and GDB's Texinfo documentation are
+       properly installed at your site, the command
+
+               info gdb
+
+       should give you access to the complete manual.
+
+       Using GDB: A Guide to the GNU Source-Level Debugger, Richard M.
+       Stallman and Roland H. Pesch, July 1991.]]></options>
+        </command>
+    </category>
+</manpages>
